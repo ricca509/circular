@@ -4,7 +4,7 @@
 
 A simple and tiny Javascript implementation of a circular buffer.
 
-**Usage **
+**Usage**
 
 ```javascript
 var buffer = new Circular();

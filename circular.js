@@ -2,7 +2,7 @@ var Circular = (function() {
 	"use strict";
 
 	var module = function(array) {
-		this._array = array !== undefined ? array : [];
+		this._array = array || [];
 		this._index = 0;
 	};
 
