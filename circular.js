@@ -1,29 +1,37 @@
-"use strict";
+var Circular = (function() {
+	"use strict";
 
-var Circular = function(array) {
-	this._array = array !== undefined ? array : [];
-	this._index = 0;
-};
+	var module = function(array) {
+		this._array = array !== undefined ? array : [];
+		this._index = 0;
+	};
 
-Circular.prototype.add = function(item) {
-	return this._array.push(item);
-};
+	module.prototype.constructor = module;    
 
-Circular.prototype.next = function() {
-	var len = this._array.length;
-	var index = this._index % len;
-	if (index <= len) {
-		this._index = (this._index + 1) % len;
-		return this._array[index];		
-	}
+	module.prototype.add = function(item) {
+		return this._array.push(item);
+	};
 
-	return undefined;
-};
+	module.prototype.next = function() {
+		var len = this._array.length;
+		var index = this._index % len;
+		if (index <= len) {
+			this._index = (this._index + 1) % len;
+			return this._array[index];		
+		}
 
-Circular.prototype.getArray = function() {
-	return this._array;
-};
+		return undefined;
+	};
 
-Circular.prototype.toString = function() {
-	return "The circular array has " + this._array.length + " items: " + this._array.toString(); 
-};
+	module.prototype.getArray = function() {
+		return this._array;
+	};
+
+	module.prototype.toString = function() {
+		return "The circular array has " + this._array.length + " items: " + this._array.toString(); 
+	};
+
+	return module;
+
+})();
+
