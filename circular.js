@@ -22,12 +22,9 @@ var Circular = (function() {
 	};
 
 	module.prototype.prev = function() {
-		if (this._index < this._array.length) {			
-			var ret = this._array.reverse()[this._index];		
-			this._index = (this._index + 1) % this._array.length;
-			this._array.reverse();
-			return ret;
-		}
+        var ret = this._array[this._array.length - this._index - 1];
+        this._index = (this._index + 1) % this._array.length;
+        return ret;
 
 		return undefined;
 	};
@@ -43,6 +40,14 @@ var Circular = (function() {
 	return module;
 
 })();
+
+var buffer = new Circular(['a', 'b', 'c', 'd', 'e', 'f']);
+
+for(var i = 0; i < 10; i++) {
+    console.log(buffer.prev() + ' - ' + buffer._index);
+}
+
+
 
 
 
