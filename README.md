@@ -17,6 +17,7 @@ buffer.add("value-2");
 console.log(buffer.next());	// Output: "value-1"
 console.log(buffer.next());	// Output: "value-2"
 console.log(buffer.next());	// Output: "value-1"
+console.log(buffer.prev());	// Output: "value-2"
 ```
 
 If you have any questions or feedback, feel free to contact me using [@CoppolaRiccardo](https://twitter.com/CoppolaRiccardo) on Twitter.
