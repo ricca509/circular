@@ -1,40 +1,53 @@
 var Circular = (function () {
     "use strict";
 
-    var Module = function (array) {
+    var module = function (array) {
         this._array = array || [];
         this._index = 0;
     };
 
-    Module.prototype.add = function (item) {
+    module.prototype.constructor = module;
+
+    module.prototype.add = function (item) {
         return this._array.push(item);
     };
 
-    Module.prototype.next = function () {
-        var ret;
-        if (this._index < this._array.length) {            
-            ret = this._array[this._index];
-            this._index = (this._index + 1) % this._array.length;                        
+    module.prototype.next = function () {
+        if (this._index < this._array.length) {
+            this._index = (this._index + 1) % this._array.length;
+            return this._array[this._index];
         }
 
-        return ret;
+        return undefined;
     };
 
-    Module.prototype.prev = function () {
+    module.prototype.prev = function () {
         var ret = this._array[this._array.length - this._index - 1];
         this._index = (this._index + 1) % this._array.length;
-        
         return ret;
+
+        return undefined;
     };
 
-    Module.prototype.getArray = function () {
+    module.prototype.getArray = function () {
         return this._array;
     };
 
-    Module.prototype.toString = function () {
+    module.prototype.toString = function () {
         return "The circular array has " + this._array.length + " items: " + this._array.toString();
     };
 
-    return Module;
+    return module;
 
 })();
+
+var buffer = new Circular(['a', 'b', 'c', 'd', 'e', 'f']);
+
+for (var i = 0; i < 10; i++) {
+    console.log(buffer.prev() + ' - ' + buffer._index);
+}
+
+
+
+
+
