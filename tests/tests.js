@@ -18,10 +18,10 @@ test("Add element", 1, function() {
     var buffer = new Circular();
     buffer.add("element-1");
 
-    ok(buffer.getArray().length === 1);
+    ok(buffer.getArray().length === 1, "Array length is ok");
 });
 
-test("Next method", 6, function() {
+test("Next method", 8, function() {
     var buffer = new Circular(['a', 'b', 'c', 'd', 'e', 'f']);    
     ok(buffer.next() === 'a');
     ok(buffer.next() === 'b');
@@ -29,9 +29,11 @@ test("Next method", 6, function() {
     ok(buffer.next() === 'd');
     ok(buffer.next() === 'e');
     ok(buffer.next() === 'f');
+    ok(buffer.next() === 'a');
+    ok(buffer.next() === 'b');
 });
 
-test("Prev method", 6, function() {
+test("Prev method", 8, function() {
     var buffer = new Circular(['a', 'b', 'c', 'd', 'e', 'f']);    
     ok(buffer.prev() === 'f');
     ok(buffer.prev() === 'e');
@@ -39,4 +41,6 @@ test("Prev method", 6, function() {
     ok(buffer.prev() === 'c');
     ok(buffer.prev() === 'b');
     ok(buffer.prev() === 'a');
+    ok(buffer.prev() === 'f');
+    ok(buffer.prev() === 'e');
 });

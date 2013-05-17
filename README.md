@@ -4,7 +4,13 @@
 
 A simple and tiny Javascript implementation of a circular buffer.
 
-**Usage**
+**Getting it**
+
+```
+git clone --depth=1 https://github.com/ricca509/circular.git
+```
+
+**Using it**
 
 ```javascript
 var buffer = new Circular();
@@ -20,7 +26,7 @@ console.log(buffer.next());	// Output: "value-1"
 console.log(buffer.prev());	// Output: "value-2"
 ```
 
-**Tests**
+**Testing it**
 
 There is a Grunt file to run QUnit tests and Hinting.
 
