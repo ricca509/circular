@@ -6,7 +6,6 @@ var circular = function (array) {
     module._array = array || [];
     module._index = 0;
 
-
     module.add = function (item) {
         return module._array.push(item);
     };

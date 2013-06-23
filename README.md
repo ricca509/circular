@@ -21,6 +21,7 @@ Prototype pattern:
 var buffer = new Circular();
 // or
 var buffer2 = new Circular(["a", "b", "c", "d"]); // Initialize with an array
+```
 
 Module pattern:
 
