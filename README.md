@@ -29,7 +29,10 @@ Module pattern:
 var buffer = circular();
 // or
 var buffer2 = circular(["a", "b", "c", "d"]); // Initialize with an array
+```
+Then
 
+```javascript
 buffer.add("value-1");
 buffer.add("value-2");
 
